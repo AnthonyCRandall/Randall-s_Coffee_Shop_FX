@@ -23,7 +23,7 @@ The purpose of this project was to build a single-page interactive application t
 
 ### Technology Used:
 
-BlueJ: An IDE for Java.
-JavaFX: Used for developing a GUI.
-CSS: For styling and customizing components.
+- BlueJ: An IDE for Java.
+- JavaFX: Used for developing a GUI.
+- CSS: For styling and customizing components.
 
