@@ -1,0 +1,15 @@
+.button {
+    -fx-background-color: #ff7518;
+    -fx-text-fill: white;
+    -fx-font-family: "verdana";
+    -fx-padding: 15px;
+
+}
+
+.landingPage-gradient {
+    -fx-background-color: linear-gradient(to top, #B87333, #483C32);
+}
+
+.gridpane-background{
+    -fx-background-color: #E5E4E2;
+}
