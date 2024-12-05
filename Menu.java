@@ -23,14 +23,14 @@ import javafx.scene.control.Separator;
 import javafx.scene.control.CheckBox;
 
 /**
- * Write a description of JavaFX class Menu here.
+ * This JavaFX application will simulate a coffee shop app.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Randall
+ * @version 0.1
  */
 public class Menu extends Application
 {
-    // Lets create a stackpane to hold all my pages for my coffee shop app
+    // Global section
     private StackPane myStackPane; 
     private String selectedDrink;
     private String selectedSize;
@@ -48,8 +48,7 @@ public class Menu extends Application
     @Override
     public void start(Stage stage)
     {
-        // Lets create a stackpane to hold the different pages of the Randalls cafe application
-        myStackPane = new StackPane();
+        myStackPane = new StackPane(); // Lets create a stackpane to hold the different pages of the Randalls cafe application
         drinkSize = new ToggleGroup(); // We want to only declare this ToggleGroup once so that the user cant select a size for multiple drinks across the entire program
         
         // Lets start creating the pages for this app
@@ -77,10 +76,6 @@ public class Menu extends Application
         blendedBeveragesPage.setVisible(false);
         icedTeaPage.setVisible(false);
         hotTeaPage.setVisible(false);
-
-        // Add the button and label into the pane
-        //pane.add(myLabel, 1, 0);
-        //pane.add(myButton, 0, 0);
 
         // JavaFX must have a Scene (window content) inside a Stage (window)
         Scene scene = new Scene(myStackPane, 500,600); // This is the size of the original window once program is ran
@@ -161,11 +156,8 @@ public class Menu extends Application
         confirmButton.setOnAction(event -> goToCustomization(event, drinkGroup));
         
         // Lets start d-e-s-i-g-n-ing it by adding our elements to the pane
-        
         drinkListPage.add(confirmButton, 10, 20);
         drinkListPage.add(drinkGroupVBox, 0, 5);
-        
-        
         
         // Returns the drinkListPage GridPane to be set the visible
         return drinkListPage;
@@ -344,7 +336,6 @@ public class Menu extends Application
         blendedBeverageIV.setFitWidth(350);
         blendedBeverageIV.setFitHeight(350);
         blendedBeverageIV.setPreserveRatio(true);
-        //GridPane.setColumnSpan()
         
         // Create RadioButtons to represent the sizes available for the drink
         RadioButton small = new RadioButton("Small   + $1.50");
@@ -540,7 +531,7 @@ public class Menu extends Application
             total += selection;
         }
         
-        double tip = total * .08675;
+        double tip = total * .08675; // Lets add a 8.675% tip to the toal (my workers deserve it)
         total = total + tip;
         
         String totalToFormat = String.format("$%,.2f", total); // Take the cummulative total and format it to look like USD
@@ -553,7 +544,7 @@ public class Menu extends Application
         for(int i = 0; i < myStackPane.getChildren().size(); i++){
             myStackPane.getChildren().get(i).setVisible(false);
         }
-        
+        // This switch will check to see what page we are going to after a navigation button was clicked, and will only display that page
         switch (pageName){
             case "landing":
                 myStackPane.getChildren().get(0).setVisible(true);
@@ -643,7 +634,8 @@ public class Menu extends Application
         }
         return 0.00;
     }
-    
+
+    // getExtras() - returns a total for whichever danishes were checked
     public double getExtras(ActionEvent event, CheckBox scone, CheckBox croissant, CheckBox bcm){
         double total = 0;
         
@@ -659,7 +651,5 @@ public class Menu extends Application
         
         return total;
     }
-        //Alert milkWarning = new Alert(Alert.AlertType.INFORMATION, "You must select a milk type before continuing");
-        //milkWarning.showAndWait(); // Alert the user to pick a milk
         
 }    
